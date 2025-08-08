@@ -15,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
             options.UseSqlite(connectionString);
         });
 
+builder.Services.AddCors();
+
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
@@ -33,6 +35,11 @@ using Microsoft.EntityFrameworkCore;
         }
 
         app.UseHttpsRedirection();
+        app.UseStaticFiles(); //dosyaları aç dışarı
+app.UseCors(opt =>
+{
+    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+});
 
         app.UseAuthorization();
 

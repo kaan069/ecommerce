@@ -2,6 +2,7 @@
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250804124546_UpdateDataContext")]
+    partial class UpdateDataContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
@@ -50,7 +53,7 @@ namespace API.Migrations
                         {
                             Id = 1,
                             Description = "Description for Product 1",
-                            ImageUrl = "1.jpg",
+                            ImageUrl = "product1.jpg",
                             IsActive = true,
                             Name = "IPHONE 1",
                             Price = 10.99m,
@@ -60,7 +63,7 @@ namespace API.Migrations
                         {
                             Id = 2,
                             Description = "Description for Product 2",
-                            ImageUrl = "2.jpg",
+                            ImageUrl = "product2.jpg",
                             IsActive = true,
                             Name = "IPHONE 2",
                             Price = 20.99m,
@@ -70,7 +73,7 @@ namespace API.Migrations
                         {
                             Id = 3,
                             Description = "Description for Product 3",
-                            ImageUrl = "3.jpg",
+                            ImageUrl = "product3.jpg",
                             IsActive = false,
                             Name = "IPHONE 3",
                             Price = 30.99m,
@@ -80,7 +83,7 @@ namespace API.Migrations
                         {
                             Id = 4,
                             Description = "Description for Product 4",
-                            ImageUrl = "4.jpg",
+                            ImageUrl = "product4.jpg",
                             IsActive = true,
                             Name = "IPHONE 4",
                             Price = 40.99m,
